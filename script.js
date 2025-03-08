@@ -1,4 +1,56 @@
+document.addEventListener("DOMContentLoaded", function () {
+const continueBtn = document.getElementById("continueBtn"); // Continue from QR modal
+  const vivekModal = document.getElementById("modal"); // Vivek Portfolio Modal
+  const modalTitle = document.getElementById("modal-title");
+  const modalBody = document.getElementById("modal-body");
 
+function startTypewriterEffect() {
+    modalTitle.innerHTML = ""; // Clear title initially
+    modalBody.innerHTML = `
+      <p id="welcome-text"></p>
+      <div class="button-container">
+        <button id="final-continue-btn" class="continue-btn">Continue</button>
+      </div>
+    `;
+
+    const titleText = "Vivek's Portfolio";
+    const welcomeText = "Welcome to my Portfolio Website";
+
+    let i = 0,
+      j = 0;
+
+    function typeWriterTitle() {
+      if (i < titleText.length) {
+        modalTitle.innerHTML += titleText.charAt(i);
+        i++;
+        setTimeout(typeWriterTitle, 70);
+      } else {
+        modalTitle.classList.add("glow");
+        setTimeout(typeWriterWelcome, 500);
+      }
+    }
+
+    function typeWriterWelcome() {
+      const welcomeElement = document.getElementById("welcome-text");
+      if (j < welcomeText.length) {
+        welcomeElement.innerHTML += welcomeText.charAt(j);
+        j++;
+        setTimeout(typeWriterWelcome, 80);
+      } else {
+        welcomeElement.classList.add("glow");
+      }
+    }
+
+    typeWriterTitle();
+
+    // Close modal on final continue button click
+    document
+      .getElementById("final-continue-btn")
+      .addEventListener("click", () => {
+        vivekModal.style.display = "none";
+      });
+  }
+  });
 // Mobile Navigation
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
