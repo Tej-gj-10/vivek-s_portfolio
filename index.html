@@ -102,6 +102,7 @@
           cursor: pointer;
           z-index: 1;
      }
+
      .img1 {
           width: 100%;
           height: 100%;
@@ -198,27 +199,27 @@
           color: var(--primary-color);
           /* border-radius: 15%; */
      }
-
 </style>
 
 <body class="light-theme">
      <div id="toast-container"></div>
-     <div id="modal" class="modal"> 
+     <!-- QR Code Authentication Modal -->
+     <div id="modal" class="modal">
           <div class="modal-content">
-              <span class="close">&times;</span>
-              <h2 id="modal-title"></h2>
-              <p id="modal-body"></p>
+               <span class="close">&times;</span>
+               <h2 id="modal-title"></h2>
+               <p id="modal-body"></p>
           </div>
-      </div>
+     </div>
 
-      <!-- <div id="modal" class="modal">
+     <!-- <div id="modal" class="modal">
           <div class="modal-content">
               <span class="close">&times;</span>
               <h2 id="modal-title"></h2>
               <p id="modal-body"></p>
           </div>
       </div> -->
-      
+
 
      <nav>
           <div class="logo">Portfolio</div>
@@ -560,11 +561,29 @@
 
                          <lord-icon src="https://cdn.lordicon.com/mamdrswm.json" trigger="loop" delay="2000"
                               stroke="bold" style="width:50px;height:50px">
-                         </lord-icon></a>
+                         </lord-icon>
+                    </a>
+
+                    <div id="qrModal" class="modal" style="display: none; justify-content: center;">
+                         <div class="modal-content">
+                              <span class="close" id="closeQrModal">&times;</span>
+                              <h2 class="modal-title">Scan QR Code in Mobile Phone</h2>
+                              <p class="modal-text">Scan this QR code to Open in Mobile Phone.</p>
+                              <img id="qrCode" src="Assests/vivek_portfolio_updated_qr.png" alt="QR Code" class="qr-image" />
+                              <button id="qr-btn" class="continue-btn ">Continue</button>
+
+                         </div>
+                    </div>
+
+                    <!-- Show QR Button -->
+                    <div id="showQrButton" class="qr-codes">Show QRCode
+                         <lord-icon src="https://cdn.lordicon.com/avwubsdy.json" trigger="loop" delay="2000"
+                              stroke="bold" style="width:40px;height:40px">
+                         </lord-icon>
+
+                    </div>
                </div>
           </div>
-
-
      </section>
 
      <footer>
