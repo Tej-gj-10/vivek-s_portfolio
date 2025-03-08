@@ -2,11 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const vivekModal = document.getElementById("modal"); // Vivek Portfolio Modal
   const modalTitle = document.getElementById("modal-title");
   const modalBody = document.getElementById("modal-body");
+  const closeBtn = document.querySelector(".close"); // Added close button selector
 
-  // Show Vivek modal on page reload
-modal.style.display = "block"; 
+  // ✅ Show Vivek modal on page load
+  vivekModal.style.display = "block";
 
-  // Typewriter Effect for the Modal
+  // ✅ Start typewriter effect on page load
+  startTypewriterEffect();
+
+  // ✅ Typewriter Effect for the Modal
   function startTypewriterEffect() {
     modalTitle.innerHTML = ""; // Clear title initially
     modalBody.innerHTML = `
@@ -45,14 +49,26 @@ modal.style.display = "block";
 
     typeWriterTitle();
 
-    // Close modal on final continue button click
+    // ✅ Close modal on final continue button click
     document.getElementById("final-continue-btn").addEventListener("click", () => {
       vivekModal.style.display = "none";
     });
   }
 
-  startTypewriterEffect(); // Start the typewriter effect when the modal opens
+  // ✅ Close modal functionality
+  if (closeBtn) {
+    closeBtn.onclick = () => {
+      vivekModal.style.display = "none";
+    };
+
+    window.onclick = (event) => {
+      if (event.target == vivekModal) {
+        vivekModal.style.display = "none";
+      }
+    };
+  }
 });
+
 
 // Mobile Navigation
 const hamburger = document.querySelector(".hamburger");
@@ -402,4 +418,38 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const qrModal = document.getElementById("qrModal");
+  const showQrButton = document.getElementById("showQrButton");
+  const closeQrModal = document.getElementById("closeQrModal");
+  const qrbtn = document.getElementById("qr-btn");
+
+  // Ensure modal is hidden on load
+  qrModal.style.display = "none";
+
+  // Show QR Modal when button is clicked
+  showQrButton.addEventListener("click", function () {
+      qrModal.style.display = "block";
+
+      showToast("QR Code modal is opened!", "info"); // Show toast
+  });
+
+  // Close QR Modal when close button is clicked
+  closeQrModal.addEventListener("click", function () {
+      qrModal.style.display = "none";
+  });
+
+  // Close QR Modal when close button is clicked
+  qrbtn.addEventListener("click", function () {
+      qrModal.style.display = "none";
+  });
+
+  // Close Modal when clicking outside
+  window.addEventListener("click", function (event) {
+      if (event.target === qrModal) {
+          qrModal.style.display = "none";
+      }
+  });
 });
