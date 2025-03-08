@@ -1,10 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
-const continueBtn = document.getElementById("continueBtn"); // Continue from QR modal
+  const qrModal = document.getElementById("qrModal"); // QR Code Modal
   const vivekModal = document.getElementById("modal"); // Vivek Portfolio Modal
   const modalTitle = document.getElementById("modal-title");
   const modalBody = document.getElementById("modal-body");
+  const passwordInput = document.getElementById("passwordInput");
+  const verifyBtn = document.getElementById("verifyBtn");
+  const continueBtn = document.getElementById("continueBtn"); // Continue from QR modal
 
-function startTypewriterEffect() {
+  // let hasTyped = false;
+
+  // // Generate a new random password (8-digit number)
+  // const password = Math.floor(10000000 + Math.random() * 90000000).toString();
+  // console.log("Generated Password:", password); // Debugging
+
+  // // Show QR modal initially
+  // qrModal.style.display = "block";
+  // vivekModal.style.display = "none"; // Hide portfolio modal initially
+
+  // // Generate and display QR Code
+  // const qrCodeElement = document.getElementById("qrCode");
+  // qrCodeElement.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Your%20password%20is:%20${password}`;
+
+  // // Event Listener for Verify Button
+  // verifyBtn.addEventListener("click", function () {
+  //   if (passwordInput.value === password) {
+  //     continueBtn.style.display = "block"; // Show Continue button
+  //     showToast("Correct Password. Click on the Continue.", "success");
+  //   } else {
+  //     showToast("Incorrect Password. Scan the QR code again.", "error");
+  //   }
+  // });
+
+  // // Event Listener for Continue Button (From QR Modal)
+  // continueBtn.addEventListener("click", function () {
+  //   qrModal.style.display = "none"; // Hide QR modal
+  //   vivekModal.style.display = "block"; // Show Vivek modal
+  //   startTypewriterEffect(); // Start typewriter effect after authentication
+  // });
+
+  // Typewriter Effect for the Modal
+  function startTypewriterEffect() {
     modalTitle.innerHTML = ""; // Clear title initially
     modalBody.innerHTML = `
       <p id="welcome-text"></p>
@@ -50,7 +85,7 @@ function startTypewriterEffect() {
         vivekModal.style.display = "none";
       });
   }
-  });
+});
 // Mobile Navigation
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
