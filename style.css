@@ -1586,6 +1586,13 @@ footer {
   top: 1rem;
 }
 
+.qr-code {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  top: 1rem;
+}
+
 .qr-codes{
     display: flex;
     padding: 1rem 2rem;
@@ -1601,10 +1608,17 @@ footer {
     text-align: center;
     box-shadow: 0 5px 10px rgb(0, 0, 0);
 }
-
+.qr-image {
+  width: 200px;
+  height: 200px;
+  margin: 10px auto;
+  display: block;
+  border: 2px solid cyan;
+  box-shadow: 0 0 10px cyan;
+  border-radius: 10px;
+}
 .qr-codes:hover {
   background: var(--gradient);
   color: white;
   transform: translateY(-5px);
 }
-
