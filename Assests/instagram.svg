@@ -1,0 +1,22 @@
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30">
+                              <defs>
+                                <!-- Neon Glow Effect -->
+                                <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                  <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+                                  <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                  </feMerge>
+                                </filter>
+                              </defs>
+                            
+                              <!-- Outer Rounded Square -->
+                              <rect x="10" y="10" width="44" height="44" rx="12" ry="12" stroke="#E1306C" stroke-width="3" fill="none" filter="url(#neon-glow)"/>
+                            
+                              <!-- Inner Camera Circle -->
+                              <circle cx="32" cy="32" r="10" stroke="#E1306C" stroke-width="3" fill="none" filter="url(#neon-glow)"/>
+                            
+                              <!-- Small Dot -->
+                              <circle cx="45" cy="19" r="2.5" fill="#E1306C" filter="url(#neon-glow)"/>
+                            </svg>
+                            

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Vivek's Portfolio</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="style.css">
+     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+     <link rel="icon" type="image/png" href="/placeholder.svg?height=32&width=32">
+     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.14/lottie.min.js"></script>
+     <script src="script.js" defer></script>
+</head>
+
+<style>
+     .telegram-icon {
+          display: block;
+          margin: auto;
+     }
+
+     .plane {
+          animation: fly 1.5s infinite ease-in-out alternate;
+     }
+
+     @keyframes fly {
+          0% {
+               transform: translateY(0) rotate(0deg);
+          }
+
+          50% {
+               transform: translateY(-5px) translateX(5px) rotate(5deg);
+          }
+
+          100% {
+               transform: translateY(-10px) translateX(10px) rotate(10deg);
+          }
+     }
+</style>
+<style>
+     .container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 10%;
+          position: relative;
+     }
+
+     /* Glowing Circle */
+     .glow-circle {
+          width: 320px;
+          height: 320px;
+          border-radius: 50%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(180deg, #00ffff, #8a2be2, #8a2be2, #00ffff);
+          box-shadow: 0 0 20px #066969, 0 0 40px #074d4d, 0 0 60px #03f3f300;
+          animation: rotate 6s linear infinite;
+
+     }
+
+     @keyframes rotate {
+          from {
+               transform: rotate(0deg);
+          }
+
+          to {
+               transform: rotate(360deg);
+          }
+     }
+
+     /* Inner Circle (Static) */
+     .inner-circle {
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: radial-gradient(circle, #8a2be2, #0a192f);
+          /* Purple gradient inside */
+          box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+          position: absolute;
+     }
+
+     /* Profile Image */
+     .img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          position: relative;
+          cursor: pointer;
+          z-index: 1;
+     }
+     .img1 {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          position: relative;
+          cursor: pointer;
+          z-index: 1;
+     }
+
+
+     .verifyBtn {
+          padding: 10px;
+          border: none;
+          background: cyan;
+          color: black;
+          width: 100%;
+          cursor: pointer;
+          display: inline-block;
+          padding: 0.8rem 2rem;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: transform 0.5s, box-shadow 0.7s;
+          box-shadow: 0px 0px 5px rgb(88, 90, 90);
+          cursor: pointer;
+          border: none;
+          text-align: center;
+          padding: 12px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          text-decoration: none;
+          border-radius: 8px;
+          transition: 0.3s ease-in-out;
+          background: transparent;
+          color: #00ffff;
+          border: 2px solid #00ffff;
+     }
+
+     .verifyBtn:hover {
+          background: #00ffff;
+          color: #001f3f;
+          box-shadow: 0 0 15px #00ffff;
+     }
+
+     .modal-body {
+          margin-top: 10px;
+          margin-bottom: 10px;
+     }
+
+     .form-group {
+          position: relative;
+          margin-bottom: 2rem;
+     }
+
+     .form-group input,
+     .form-group textarea {
+          width: 100%;
+          padding: 0.8rem;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          font-size: 1rem;
+          transition: all 0.3s;
+          background-color: var(--background-color);
+          color: black;
+     }
+
+     .form-group label {
+          position: absolute;
+          left: 1rem;
+          top: 0.8rem;
+          color: rgba(0, 0, 0, 0.5);
+          transition: all 0.3s;
+          pointer-events: none;
+     }
+
+     .form-group input:focus,
+     .form-group textarea:focus {
+          border-color: var(--primary-color);
+          outline: none;
+     }
+
+     .form-group input:focus+label,
+     .form-group textarea:focus+label,
+     .form-group input:valid+label,
+     .form-group textarea:valid+label {
+          top: -0.5rem;
+          left: 0.5rem;
+          font-size: 0.9rem;
+          background: white;
+          overflow: hidden;
+          padding: 0 0.5rem;
+          /* border: 2px solid var(--primary-color); */
+          color: var(--primary-color);
+          /* border-radius: 15%; */
+     }
+
+</style>
+
+<body class="light-theme">
+     <div id="toast-container"></div>
+     <!-- QR Code Authentication Modal -->
+     <div id="qrModal" class="modal">
+          <div class="modal-content">
+               <h2>Scan the QR Code</h2>
+               <p>Scan this QR code to get the password.</p>
+               <img id="qrCode" src="" alt="QR Code">
+
+               <!-- Wrapped inside .form-group -->
+               <div class="form-group">
+                    <input placeholder="Enter Password" type="password" id="passwordInput" required>
+                    <span><img style="position: absolute; width: 25px; height: 25px;top: 10px; right: 15px;cursor: pointer;"
+                              src="Assests/eye-crossed.svg" alt=""></span>
+               </div>
+               <button class="verifyBtn" id="verifyBtn">Verify</button>
+               <button id="continueBtn" class="continue-btn" style="display: none;">Continue</button>
+          </div>
+     </div>
+     <div id="modal" class="modal"> 
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2 id="modal-title"></h2>
+              <p id="modal-body"></p>
+          </div>
+      </div>
+
+      <!-- <div id="modal" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2 id="modal-title"></h2>
+              <p id="modal-body"></p>
+          </div>
+      </div> -->
+      
+
+     <nav>
+          <div class="logo">Portfolio</div>
+          <div class="nav-links">
+               <a href="#home">Home</a>
+               <a href="#about">About</a>
+               <a href="#skills">Skills</a>
+               <a href="#projects">Projects</a>
+               <a href="#contact">Contact</a>
+          </div>
+          <div class="hamburger">
+               <div class="line"></div>
+               <div class="line"></div>
+               <div class="line"></div>
+          </div>
+     </nav>
+
+
+     <section id="home">
+          <div class="hero">
+               <h1>Hi, I'm <span id="typewriter" class="typewriter">Vivek Pankhaniya</span></h1>
+               <h2 class="animated-text">Web Developer | Editor | Designer.</h2>
+               <p>Building secure, scalable, and user-friendly digital solutions.</p>
+               <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">
+                         <img width="30px" height="30px" src="Assests/work.svg" alt="">
+                         View My Work
+                    </a>
+                    <a href="#contact" class="btn secondary">
+                         <img width="25px" height="25px" src="Assests/contact.png" alt="">
+                         Contact Me
+                    </a>
+               </div>
+          </div>
+          <div class="container">
+               <div class="glow-circle"></div>
+               <div class="inner-circle">
+                    <img class="img" src="Assests/DOSC6090.JPG" alt="Profile">
+               </div>
+          </div>
+          <div id="lottie-animation" class="lottie-container"></div>
+     </section>
+
+
+
+
+     <!-- <section id="about">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+               <div class="about-text">
+                    <p>I'm a IT Engineering Student with experience in creating responsive and user-friendly
+                         websites. I love turning complex problems into simple, beautiful and intuitive solutions.</p>
+                    <div class="about-details">
+                         <div class="detail">
+                              <h3>Collegian</h3>
+                              <p>1 year</p>
+                         </div>
+                         <div class="detail">
+                              <h3>Projects</h3>
+                              <p>50+ Completed</p>
+                         </div>
+                         <div class="detail">
+                              <h3>Clients</h3>
+                              <p>30+ Happy</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section> -->
+
+     <section id="about">
+          <h2 class="section-title"><img width="30px" height="30px" style="margin-right: 5px;" src="Assests/Aboutme.png"
+                    alt="">About Me</h2>
+          <div class="about-container">
+
+               <div class="container">
+                    <div class="glow-circle"></div>
+                    <div class="inner-circle">
+                         <img class="img1" src="Assests/DOSC6090.JPG" alt="Profile">
+                    </div>
+               </div>
+               <div class="about-content">
+                    <p>
+                         I’m <span class="highlight">Vivek Pankhaniya</span>, a passionate <strong
+                              id="element2"></strong>. I specialize in creating highly interactive,
+                         secure, and scalable web applications using modern technologies.
+                    </p>
+                    <p>
+                         With a deep interest in <strong>JavaScript, HTML, CSS, Python</strong>, and <strong>C</strong>,
+                         I strive to build innovative digital solutions that blend security and user experience
+                         seamlessly.
+                    </p>
+
+
+                    <div class="about-icons">
+                         <div class="icon-box">
+                              <img style="border-radius: 50%;" src="Assests/full stack.jpg" alt="Coding Icon">
+                              <p>Full-Stack Development</p>
+                         </div>
+                         <div class="icon-box">
+                              <img src="Assests/Ai.jpg" alt="AI Icon">
+                              <p>AI & Machine Learning</p>
+                         </div>
+                    </div>
+                    <a href="#projects" class="about-btn">View My Work</a>
+               </div>
+          </div>
+     </section>
+
+
+     <section id="skills">
+          <h1 class="section-title">My Skills</h1>
+          <h3 class="section-title2"><span id="element"></span></h3>
+          <span id="element"></span>
+          <div class="skills-container">
+               <div class="skill">
+                    <div class="skill-name">HTML<img style="margin-left: 10px;  margin-bottom: -10px;" width="40px"
+                              height="40px" src="Assests/HTML5_logo_and_wordmark.svg" alt=""></div>
+                    <div class="skill-bar">
+                         <div class="skill-progress" style="width: 95%;" data-progress="95"></div>
+                    </div>
+               </div>
+               <div class="skill">
+                    <div class="skill-name">CSS
+                         <img width="40px" height="40px" style="margin-left: 10px;" width="40px"
+                              src="Assests/CSS3_logo_and_wordmark.svg" alt="">
+
+                         <div class="skill-bar">
+                              <div class="skill-progress" style="width: 90%;" data-progress="90"></div>
+                         </div>
+                    </div>
+               </div>
+               <div class="skill">
+                    <div class="skill-name"> C<img width="30px" style="margin-left: 15px; margin-bottom: -10px;"
+                              height="30px" src="Assests/C_Logo.png" alt=""></div>
+                    <div class="skill-bar">
+                         <div class="skill-progress" style="width: 85%;" data-progress="85"></div>
+                    </div>
+               </div>
+               <div class="skill">
+                    <div class="skill-name">Python<img src="Assests/Python-logo-notext.svg" width="30px" height="30px"
+                              style="margin-left: 30px; margin-bottom: -10px;" alt="C"></div>
+                    <div class="skill-bar">
+                         <div class="skill-progress" style="width: 75%;" data-progress="80"></div>
+                    </div>
+               </div>
+               <!-- <div class="skill">
+              <div class="skill-name"></div>
+              <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%;" data-progress="70"></div>
+              </div>
+          </div> -->
+          </div>
+          <h3 class="section-title2"><span id="element1"></span></h3>
+          <span id="element"></span>
+          <div class="skills-container">
+               <div class="skill">
+                    <div class="skill-name">
+                         Creativity
+                         <svg class="skill-icon" width="40" height="40" viewBox="0 0 24 24">
+                              <path fill="#8a2be2"
+                                   d="M17.66 9.53l-7.07 7.07-4.24-4.24 1.41-1.41 2.83 2.83 5.66-5.66 1.41 1.41zM4 12c0-2.33 1.02-4.42 2.62-5.88L9 8.5v-6H3l2.2 2.2C3.24 6.52 2 9.11 2 12c0 5.19 3.95 9.45 9 9.95v-2.02c-3.94-.49-7-3.86-7-7.93zm18 0c0-5.19-3.95-9.45-9-9.95v2.02c3.94.49 7 3.86 7 7.93 0 2.33-1.02 4.42-2.62 5.88L15 15.5v6h6l-2.2-2.2c1.96-1.82 3.2-4.41 3.2-7.3z" />
+                         </svg>
+                         <div class="skill-bar">
+                              <div class="skill-progress" style="width: 90%;" data-progress="90"></div>
+                         </div>
+                    </div>
+                    <div class="skill">
+                         <div class="skill-name">
+                              Communication
+                              <svg style="margin-left: 30px; margin-bottom: -10px;" class="skill-icon" width="40"
+                                   height="40" viewBox="0 0 24 24">
+                                   <path fill="#8a2be2"
+                                        d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M6,9H18V11H6M14,14H6V12H14M18,8H6V6H18" />
+                              </svg>
+                         </div>
+                         <div class="skill-bar">
+                              <div class="skill-progress" style="width: 85%;" data-progress="85"></div>
+                         </div>
+                    </div>
+                    <div class="skill">
+                         <div class="skill-name">
+                              Teamwork
+                              <svg style="margin-left: 30px; margin-bottom: -10px;" class="skill-icon" width="40"
+                                   height="40" viewBox="0 0 24 24">
+                                   <path fill="#8a2be2"
+                                        d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" />
+                              </svg>
+                         </div>
+                         <div class="skill-bar">
+                              <div class="skill-progress" style="width: 80%;" data-progress="80"></div>
+                         </div>
+                    </div>
+                    <div class="skill">
+                         <div class="skill-name">
+                              Public-Speaking
+                              <img style="margin-left: 20px; margin-bottom: -10px; width: 30px;height: 30px;"
+                                   src="Assests/public speking.png" alt="">
+                         </div>
+                         <div class="skill-bar">
+                              <div class="skill-progress" style="width: 75%;" data-progress="75"></div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+     <section id="projects">
+          <h2 class="section-title">
+               <svg width="30" height="30" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 10px;">
+                    <path fill="#8a2be2"
+                         d="M3,3H21V7H3V3M4,8H20V21H4V8M9.5,11A0.5,0.5 0 0,0 9,11.5V13H15V11.5A0.5,0.5 0 0,0 14.5,11H9.5Z" />
+               </svg>
+               My Projects
+          </h2>
+          <div class="projects-grid">
+               <div class="project-card" data-project-name="Netflix">
+                    <div class="project-image">
+                         <img src="Assests/Netflix4.png" style="background-size: cover; background-repeat: no-repeat;"
+                              height="50px" width="100%" alt="Project 1">
+                    </div>
+                    <div class="project-info">
+                         <h3>Netflix Website</h3>
+                         <p>A full-featured online movie platform with payment integration.</p>
+                         <div class="project-tags">
+                              <span>HTML <img src="Assests/HTML5_logo_and_wordmark.svg"
+                                        style="margin-left: 15px; margin-bottom:px;" width="25px" height="25px"
+                                        alt=""></span>
+                              <span>CSS <img src="Assests/CSS3_logo_and_wordmark.svg"
+                                        style="margin-left: 15px; margin-bottom:px;" width="25px" height="25px"
+                                        alt=""></span>
+                              <span>JavaScript<img src="Assests/JavaScript-logo.png"
+                                        style="margin-left: 10px; margin-bottom:px;" width="25px" height="25px"
+                                        alt=""></span>
+                         </div>
+                         <div class="project-links">
+                              <button class="btn demo-btn" data-demo="Netflix">Demo</button>
+                              <button class="btn code-btn"
+                                   data-code-link="https://drive.google.com/drive/folders/1LioUsAUlZ-IpaM-tTJqu0Dupn7t3_67c?usp=drive_link"
+                                   data-code="NetflixCode">Code</button>
+                         </div>
+                    </div>
+               </div>
+               <div class="project-card" data-project-name="E-Commerce">
+                    <div class="project-image">
+                         <img src="Assests/ama.png" alt="Project 2">
+                    </div>
+                    <div class="project-info">
+                         <h3>E-Commerse Website</h3>
+                         <p>A full-featured online shopping platform with payment integration.</p>
+                         <div class="project-tags">
+                              <span>HTML <img src="Assests/HTML5_logo_and_wordmark.svg"
+                                        style="margin-left: 15px; margin-bottom: px;" width="25px" height="25px"
+                                        alt=""></span>
+                              <span>CSS <img src="Assests/CSS3_logo_and_wordmark.svg"
+                                        style="margin-left: 15px; margin-bottom: px;" width="25px" height="25px"
+                                        alt=""></span>
+                              <span>JavaScript<img src="Assests/JavaScript-logo.png"
+                                        style="margin-left: 15px; margin-bottom: px;" width="25px" height="25px"
+                                        alt=""></span>
+                         </div>
+                         <div class="project-links">
+                              <button class="btn demo-btn1" data-demo="E-Commerce">Demo</button>
+                              <button class="btn code-btn1"
+                                   data-code-link="https://drive.google.com/drive/folders/1p6t6xuP0moPuijXBVN6fWdiOMm67wCsT?usp=drive_link"
+                                   data-code="E-Commerce">Code</button>
+                         </div>
+                    </div>
+               </div>
+
+
+               <!-- <div class="project-card">
+              <div class="project-image">
+                  <img src="/placeholder.svg?height=300&width=400" alt="Project 3">
+              </div>
+              <div class="project-info">
+                  <h3>Weather App</h3>
+                  <p>Real-time weather forecasting with beautiful animations.</p>
+                  <div class="project-tags">
+                      <span>JavaScript</span>
+                      <span>Weather API</span>
+                      <span>CSS3</span>
+                  </div>
+                  <div class="project-links">
+                      <button class="btn demo-btn" data-demo="weatherapp">Demo</button>
+                      <button class="btn code-btn" data-code="weatherapp">Code</button>
+                  </div> -->
+          </div>
+          </div>
+          </div>
+     </section>
+
+
+
+     <section id="contact">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="contact-container">
+               <form id="contactForm" class="contact-form">
+
+                    <div class="form-group">
+                         <input type="text" id="name" name="name" required>
+                         <label for="name">Name</label>
+                    </div>
+                    <div class="form-group">
+                         <input type="email" id="email" name="email" required>
+                         <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                         <textarea id="message" name="message" required></textarea>
+                         <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="btn primary">Send Message</button>
+               </form>
+               <!-- <form id="contactForm">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form> -->
+
+               <div class="social-links">
+                    <a href="https://www.instagram.com/_vivek_0403?igsh=eWZ5N2F6ZmV1Z3V3" target="_blank"
+                         class="social-link">Instagram
+
+                         <lord-icon src="https://cdn.lordicon.com/lljlideu.json" trigger="loop" delay="1000"
+                              stroke="bold" state="in-reveal" style="width:50px;height:50px">
+                         </lord-icon>
+                    </a>
+
+                    <a href="https://t.me/Vivek_Pankhaniya" target="_blank" class="social-link">Telegram
+
+
+                         <lord-icon src="https://cdn.lordicon.com/crflykea.json" trigger="loop" delay="2000"
+                              stroke="bold" style="width:50px;height:50px">
+                         </lord-icon>
+                    </a>
+
+                    <a href="https://www.snapchat.com/add/pankhaniya.43?share_id=z1YQC_qEQfc&locale=en-GB"
+                         target="_blank" class="social-link">Snapchat
+
+                         <lord-icon src="https://cdn.lordicon.com/mamdrswm.json" trigger="loop" delay="2000"
+                              stroke="bold" style="width:50px;height:50px">
+                         </lord-icon></a>
+               </div>
+          </div>
+
+
+     </section>
+
+     <footer>
+          <p>&copy; 2024 Vivek Pankhaniya. All rights reserved.</p>
+     </footer>
+
+     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+     <script>
+          var typed = new Typed('#element', {
+               strings: ['Technical Skills as IT Engineering Student.'],
+               typeSpeed: 60,
+          });
+
+
+          var typed = new Typed('#element1', {
+               strings: ['Professional Skills.'],
+               typeSpeed: 60,
+          });
+
+          var typed = new Typed('#element2', {
+               strings: ['Web Developer, Web Designer, Editor.'],
+               typeSpeed: 70,
+          });
+
+
+     </script>
+</body>
+
+</html>

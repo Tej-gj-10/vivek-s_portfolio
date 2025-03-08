@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      .plane {
+        transform-origin: center;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .plane:hover {
+        animation: flightPath 2s infinite ease-in-out, pinch 1s infinite ease-in-out;
+      }
+
+      @keyframes flightPath {
+        0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        25% { transform: translate(20px, -20px) rotate(15deg) scale(1.05); }
+        50% { transform: translate(40px, 0px) rotate(30deg) scale(1.1); }
+        75% { transform: translate(20px, 20px) rotate(15deg) scale(1.05); }
+        100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      }
+
+      @keyframes pinch {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+    </style>
+  </defs>
+
+  <!-- Telegram Paper Plane -->
+  <path class="plane" d="M18 31L44 20L36 44L28 36L18 31Z" stroke="#0088CC" stroke-width="3" fill="none"/>
+</svg>

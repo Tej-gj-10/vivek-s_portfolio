@@ -1,0 +1,35 @@
+<svg  viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Glow -->
+    <defs>
+        <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="12" result="glow"/>
+            <feMerge>
+                <feMergeNode in="glow"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <!-- Gradient -->
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff00ff"/>
+            <stop offset="100%" stop-color="#8000ff"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Outer Rounded Square -->
+    <rect x="50" y="50" width="400" height="400" rx="60" ry="60" stroke="url(#gradient)" stroke-width="16" fill="black" filter="url(#neon-glow)"/>
+
+    <!-- VP Text with Audiowide Font -->
+    <text x="50%" y="52%" font-family="'Audiowide', cursive" font-size="280px" font-weight="bold"
+          fill="url(#gradient)" text-anchor="middle" dy=".3em" filter="url(#neon-glow)">
+        VP
+    </text>
+
+    <!-- Decorative Elements -->
+    <circle cx="80" cy="80" r="12" fill="url(#gradient)" filter="url(#neon-glow)"/>
+    <circle cx="420" cy="80" r="12" fill="url(#gradient)" filter="url(#neon-glow)"/>
+    <circle cx="80" cy="420" r="12" fill="url(#gradient)" filter="url(#neon-glow)"/>
+    <circle cx="420" cy="420" r="12" fill="url(#gradient)" filter="url(#neon-glow)"/>
+    <line x1="100" y1="180" x2="400" y2="180" stroke="url(#gradient)" stroke-width="8" filter="url(#neon-glow)"/>
+    <line x1="100" y1="320" x2="400" y2="320" stroke="url(#gradient)" stroke-width="8" filter="url(#neon-glow)"/>
+</svg>
