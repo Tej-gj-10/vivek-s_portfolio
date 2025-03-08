@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalBody = document.getElementById("modal-body");
 
   // Show Vivek modal on page reload
-  vivekModal.style.display = "block"; 
+modal.style.display = "block"; 
 
   // Typewriter Effect for the Modal
   function startTypewriterEffect() {
