@@ -1586,23 +1586,23 @@ footer {
   top: 1rem;
 }
 
-.qr-codes {
-  display: flex;
-  padding: 1rem 2rem;
-  background: white;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--text-color);
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s;
-  align-items: center;
-  justify-content: space-around;
-  text-align: center; 
-  box-shadow: 0 5px 10px rgb(0, 0, 0);
+.qr-codes{
+    display: flex;
+    padding: 1rem 2rem;
+    background: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
 }
 
-.qr-codes :hover {
+.qr-codes:hover {
   background: var(--gradient);
   color: white;
   transform: translateY(-5px);
