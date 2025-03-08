@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
   const qrModal = document.getElementById("qrModal"); // QR Code Modal
   const vivekModal = document.getElementById("modal"); // Vivek Portfolio Modal
   const modalTitle = document.getElementById("modal-title");
